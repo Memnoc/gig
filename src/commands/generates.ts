@@ -1,16 +1,68 @@
 // HEADER: main commands to generate the gitignore from the CLI
-import { Command } from "clipanion";
+import { Command, Option } from "clipanion";
 import alert from "better-cli-alerts";
+import { getTemplate } from "../templates";
+import fs from "node:fs/promises";
 
-export class HelloCommand extends Command {
-  static paths = [["hello"]];
+/* INFO: Creates the file .gitignore
+ *
+ * The GenerateCommand class extends the Command class from Clipanion
+ * The asynchronous function execute() performs validation
+ * on the existence of the .gitignore file
+ *
+ * getTemplate() function retrieves the template
+ *
+ * better-cli-alerts handles the error validation with custom messages
+ *
+ * */
+export class GenerateCommand extends Command {
+  static paths = [["generate"], ["g"]];
+
+  template = Option.String("--template", { required: false });
 
   async execute() {
-    alert({
-      type: "success",
-      message: "GIG is working!",
-      description: "SUCCESS",
-    });
-    return 0;
+    try {
+      const exists = await fs
+        .access(".gitignore")
+        .then(() => true)
+        .catch(() => false);
+
+      if (exists) {
+        alert({
+          type: "warning",
+          message: "A .gitignore file already exists",
+          description: "WARNING",
+        });
+        return 1;
+      }
+
+      const template = getTemplate(this.template as "node");
+      if (!template) {
+        alert({
+          type: "error",
+          message: "Template not found",
+          description: "ERROR",
+        });
+        return 1;
+      }
+
+      await fs.writeFile(".gitignore", template.content);
+
+      alert({
+        type: "success",
+        message: "Generated .gitignore file!",
+        description: "SUCCESS",
+      });
+
+      return 0;
+    } catch (err: unknown) {
+      const error = err instanceof Error ? err.message : "Unknown error";
+      alert({
+        type: "error",
+        message: error,
+        description: "ERROR",
+      });
+      return 1;
+    }
   }
 }

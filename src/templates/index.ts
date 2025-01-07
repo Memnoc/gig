@@ -51,7 +51,7 @@ Thumbs.db
   // more templates later
 ]);
 
-export function getTemplates(key: TemplateKey): GitIgnoreTemplate | undefined {
+export function getTemplate(key: TemplateKey): GitIgnoreTemplate | undefined {
   return templates.get(key);
 }
 
