@@ -7,7 +7,7 @@ export class HelloCommand extends Command {
   async execute() {
     alert({
       type: "success",
-      message: "GIG is working!",
+      message: "gig-ignite is working!",
       description: "SUCCESS",
     });
     return 0;

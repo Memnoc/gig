@@ -1,3 +1,5 @@
+// HEADER: store and load gitignore templates
+
 export interface GitIgnoreTemplate {
   id: number;
   name: string;

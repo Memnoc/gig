@@ -5,7 +5,7 @@ import { Cli } from "clipanion";
 import { HelloCommand } from "./commands/hello";
 
 const cli = new Cli({
-  binaryName: "gig",
+  binaryName: "gig-ignite",
   binaryVersion: "1.0.0",
 });
 
