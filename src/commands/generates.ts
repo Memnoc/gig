@@ -28,8 +28,8 @@ export class GenerateCommand extends Command {
   static usage = Command.Usage({
     description: "Generates the .gitignore file",
     examples: [
-      ["Generate gitignore", "generate --template [name]"],
-      ["Short form", "g --template [name]"],
+      ["Generate gitignore", "gig generate --template [name]"],
+      ["Short form", "gig g --template [name]"],
     ],
   });
 
