@@ -45,7 +45,9 @@
   },
   "dependencies": {
     "better-cli-alerts": "^2.2.2",
+    "chalk": "^5.4.1",
     "clipanion": "^4.0.0-rc.4",
-    "enquirer": "^2.4.1"
+    "enquirer": "^2.4.1",
+    "lucide-react": "^0.469.0"
   }
 }

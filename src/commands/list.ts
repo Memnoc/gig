@@ -4,7 +4,15 @@ import alert from "better-cli-alerts";
 import { listTemplates } from "../templates/index";
 import enquirerPkg from "enquirer";
 import { TemplateResponse } from "../types/types";
+import chalk from "chalk";
 const { prompt } = enquirerPkg;
+
+const icons = {
+  file: "📄",
+  folder: "📁",
+  success: chalk.green("✓"),
+  error: chalk.red("✖"),
+} as const;
 
 /* INFO:
  *
@@ -24,11 +32,10 @@ export class ListCommand extends Command {
   async execute() {
     try {
       const templates = listTemplates();
-      console.log(templates);
       const { template } = await prompt<TemplateResponse>({
         type: "select",
         name: "template",
-        message: "Choose a template",
+        message: `${icons.file} Choose a template:`,
         choices: templates.map((t) => ({
           name: t.name,
           value: t.id,
@@ -43,7 +50,7 @@ export class ListCommand extends Command {
       if (!selectedTemplate) {
         alert({
           type: "error",
-          message: "Template not found",
+          message: `${icons.error} Template not found`,
           description: "ERROR",
         });
         return 1;
@@ -51,7 +58,7 @@ export class ListCommand extends Command {
 
       alert({
         type: "success",
-        message: `Selected: ${selectedTemplate.name}`,
+        message: `${icons.success} Selected: ${selectedTemplate.name}`,
         description: "TEMPLATE FOUND",
       });
       return 0;
