@@ -5,7 +5,7 @@ import { GitIgnoreTemplate } from "../../types/types";
 
 export const kotlin: GitIgnoreTemplate = {
   id: Date.now(),
-  name: "Node.js",
+  name: "Kotlin",
   description: "Node.js projects with npm/yarn/pnpm",
   content: `
 # Kotlin

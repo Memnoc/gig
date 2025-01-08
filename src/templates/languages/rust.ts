@@ -5,7 +5,7 @@ import { GitIgnoreTemplate } from "../../types/types";
 
 export const rust: GitIgnoreTemplate = {
   id: Date.now(),
-  name: "Node.js",
+  name: "Rust",
   description: "Node.js projects with npm/yarn/pnpm",
   content: `
 # Rust specific

@@ -5,3 +5,7 @@ export interface GitIgnoreTemplate {
   description: string;
   content: string;
 }
+
+export interface TemplateResponse {
+  template: string;
+}

@@ -5,7 +5,7 @@ import { GitIgnoreTemplate } from "../../types//types";
 
 export const typescript: GitIgnoreTemplate = {
   id: Date.now(),
-  name: "Node.js",
+  name: "TypeScript",
   description: "Node.js projects with npm/yarn/pnpm",
   content: `
 # Dependencies
