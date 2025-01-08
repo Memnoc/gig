@@ -25,6 +25,13 @@ import fs from "node:fs/promises";
  * */
 export class GenerateCommand extends Command {
   static paths = [["generate"], ["g"]];
+  static usage = Command.Usage({
+    description: "Generates the .gitignore file",
+    examples: [
+      ["Generate gitignore", "generate --template [name]"],
+      ["Short form", "g --template [name]"],
+    ],
+  });
 
   template = Option.String("--template", { required: false });
 
