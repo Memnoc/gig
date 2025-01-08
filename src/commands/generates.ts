@@ -4,7 +4,7 @@ import alert from "better-cli-alerts";
 import { getTemplate } from "../templates";
 import fs from "node:fs/promises";
 
-/* INFO: Creates the file .gitignore
+/* INFO: Retrieves .gitignore content and place it into a file .gitignore
  *
  * The GenerateCommand class extends the Command class from Clipanion
  * The asynchronous function execute() performs validation
@@ -14,6 +14,7 @@ import fs from "node:fs/promises";
  *
  * better-cli-alerts handles the error validation with custom messages
  *
+ * INFO:
  * The execute function access the .gitignore template
  * Verify it's existence
  * If it exists, an alert with better-cli-alerts is produced
