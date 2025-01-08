@@ -1,54 +1,30 @@
 // HEADER: store and load gitignore templates
+import { node } from "../templates/languages/node";
+import { GitIgnoreTemplate } from "../types/types";
+import { go } from "./languages/go";
+import { kotlin } from "./languages/kotlin";
+import { python } from "./languages/python";
+import { ruby } from "./languages/ruby";
+import { rust } from "./languages/rust";
+import { typescript } from "./languages/typescript";
 
-export interface GitIgnoreTemplate {
-  id: number;
-  name: string;
-  description: string;
-  content: string;
-}
-
-type TemplateKey = "node" | "python" | "typescript" | "go" | "ruby";
+type TemplateKey =
+  | "node"
+  | "python"
+  | "typescript"
+  | "go"
+  | "rust"
+  | "kotlin"
+  | "ruby";
 
 export const templates = new Map<TemplateKey, GitIgnoreTemplate>([
-  [
-    "node",
-    {
-      id: Date.now(),
-      name: "Node.js",
-      description: "Node.js projects with npm/yarn/pnpm",
-      content: `
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
-
-# Build output
-dist/
-build/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Operating System
-.DS_Store
-Thumbs.db
-    `.trim(),
-    },
-  ],
-  // more templates later
+  ["node", node],
+  ["python", python],
+  ["typescript", typescript],
+  ["go", go],
+  ["rust", rust],
+  ["kotlin", kotlin],
+  ["ruby", ruby],
 ]);
 
 export function getTemplate(key: TemplateKey): GitIgnoreTemplate | undefined {

@@ -14,6 +14,13 @@ import fs from "node:fs/promises";
  *
  * better-cli-alerts handles the error validation with custom messages
  *
+ * The execute function access the .gitignore template
+ * Verify it's existence
+ * If it exists, an alert with better-cli-alerts is produced
+ * If it does not, it attempts to retrieve a template
+ * If found, the template is added, if not, an error is produced
+ *
+ *
  * */
 export class GenerateCommand extends Command {
   static paths = [["generate"], ["g"]];
