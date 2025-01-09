@@ -24,30 +24,30 @@ export async function generateGitIgnore(
 
     const template = getTemplate(templateKey);
     if (!template) {
-      alert({
-        type: "error",
-        message: "Template not found",
-        description: "ERROR",
-      });
+      // alert({
+      //   type: "error",
+      //   message: "Template not found",
+      //   description: "ERROR",
+      // });
       return { success: false, error: "File not found" };
     }
 
     await fs.writeFile(".gitignore", template.content);
 
-    alert({
-      type: "success",
-      message: "Generated .gitignore file!",
-      description: "SUCCESS",
-    });
+    // alert({
+    //   type: "success",
+    //   message: "Generated .gitignore file!",
+    //   description: "SUCCESS",
+    // });
 
     return { success: true };
   } catch (err: unknown) {
     const error = err instanceof Error ? err.message : "Unknown error";
-    alert({
-      type: "error",
-      message: error,
-      description: "ERROR",
-    });
+    // alert({
+    //   type: "error",
+    //   message: error,
+    //   description: "ERROR",
+    // });
     return { success: false, error };
   }
 }
