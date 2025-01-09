@@ -6,6 +6,7 @@ import { GitIgnoreTemplate } from "../../types/types";
 export const go: GitIgnoreTemplate = {
   id: Date.now(),
   name: "Go",
+  key: "go",
   description: "Node.js projects with npm/yarn/pnpm",
   content: `
 # Binaries and build outputs

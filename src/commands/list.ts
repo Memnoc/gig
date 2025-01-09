@@ -3,8 +3,9 @@ import { Command } from "clipanion";
 import alert from "better-cli-alerts";
 import { listTemplates } from "../templates/index";
 import enquirerPkg from "enquirer";
-import { TemplateResponse } from "../types/types";
+import { TemplateKey, TemplateResponse } from "../types/types";
 import chalk from "chalk";
+import { generateGitIgnore } from "../utils/generateGitIgnore";
 const { prompt } = enquirerPkg;
 
 const icons = {
@@ -32,16 +33,19 @@ export class ListCommand extends Command {
   async execute() {
     try {
       const templates = listTemplates();
+      console.log("Available templates:", templates);
+
       const { template } = await prompt<TemplateResponse>({
         type: "select",
         name: "template",
         message: `${icons.file} Choose a template:`,
         choices: templates.map((t) => ({
           name: t.name,
-          value: t.id,
+          value: t.name,
           description: t.description,
         })),
       });
+      console.log("Selected template key:", template); // Debug
 
       const selectedTemplate = templates.find(
         (t) => t.name.trim() === template,
@@ -56,11 +60,15 @@ export class ListCommand extends Command {
         return 1;
       }
 
+      const result = await generateGitIgnore(template as TemplateKey);
+      console.log("Generate result:", result); // Debug
+      if (!result.success) return 1;
+
       alert({
         type: "success",
         message: `${icons.success} Selected: ${selectedTemplate.name}`,
-        description: "TEMPLATE FOUND",
       });
+
       return 0;
     } catch (err: unknown) {
       const error = err instanceof Error ? err.message : "unknown error";

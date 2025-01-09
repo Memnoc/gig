@@ -7,15 +7,7 @@ import { python } from "./languages/python";
 import { ruby } from "./languages/ruby";
 import { rust } from "./languages/rust";
 import { typescript } from "./languages/typescript";
-
-type TemplateKey =
-  | "node"
-  | "python"
-  | "typescript"
-  | "go"
-  | "rust"
-  | "kotlin"
-  | "ruby";
+import { TemplateKey } from "../types/types";
 
 export const templates = new Map<TemplateKey, GitIgnoreTemplate>([
   ["node", node],
@@ -28,7 +20,7 @@ export const templates = new Map<TemplateKey, GitIgnoreTemplate>([
 ]);
 
 export function getTemplate(key: TemplateKey): GitIgnoreTemplate | undefined {
-  return templates.get(key);
+  return templates.get(key.toLowerCase() as TemplateKey);
 }
 
 export function listTemplates(): GitIgnoreTemplate[] {
