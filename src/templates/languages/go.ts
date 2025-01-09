@@ -7,7 +7,7 @@ export const go: GitIgnoreTemplate = {
   id: Date.now(),
   name: "Go",
   key: "go",
-  description: "Node.js projects with npm/yarn/pnpm",
+  description: "Go projects with cross platform support",
   content: `
 # Binaries and build outputs
 *.exe

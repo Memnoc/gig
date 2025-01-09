@@ -6,7 +6,8 @@ import { GitIgnoreTemplate } from "../../types/types";
 export const python: GitIgnoreTemplate = {
   id: Date.now(),
   name: "Python",
-  description: "Node.js projects with npm/yarn/pnpm",
+  key: "python",
+  description: "Python projects with Jupiter and IPython",
   content: `
 # Python
 __pycache__/

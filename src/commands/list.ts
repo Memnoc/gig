@@ -1,83 +1,73 @@
 // HEADER: List of available templates
 import { Command } from "clipanion";
-import alert from "better-cli-alerts";
 import { listTemplates } from "../templates/index";
-import enquirerPkg from "enquirer";
-import { TemplateKey, TemplateResponse } from "../types/types";
-import chalk from "chalk";
+import { TemplateKey } from "../types/types";
 import { generateGitIgnore } from "../utils/generateGitIgnore";
-const { prompt } = enquirerPkg;
-
-const icons = {
-  file: "📄",
-  folder: "📁",
-  success: chalk.green("✓"),
-  error: chalk.red("✖"),
-} as const;
+import { intro, outro, select, spinner, note } from "@clack/prompts";
 
 /* INFO:
  *
- * Issues a list command that exposes the available
- * gitignore options
+ * icons: {}
+ * Best going with a simple object
+ * to keep dependencies low
  *
+ * */
+// const icons = {
+//   file: "📄",
+//   folder: "📁",
+//   success: chalk.green("✓"),
+//   error: chalk.red("✖"),
+// } as const;
+
+/* INFO:
  *
- * Define the path
- * Get the list of templates
- * Create the prompt with enquirer
- * Handle the validation with better-cli-alerts
- * Await for user choice
- * Make sure the choice "exists"
+ * class: ListCommand
+ * We need to expose the list of available templates
+ * to the end user.
+ *
  * */
 export class ListCommand extends Command {
   static paths = [["list"], ["l"]];
 
-  static usage = Command.Usage({
-    description: "List available gitignore templates",
-    examples: [
-      ["List all templates", "gig list"],
-      ["Short form", "gig l"],
-    ],
-  });
-
-  async execute() {
+  async execute(): Promise<number> {
     try {
-      const templates = listTemplates();
+      // Intro
+      intro("Welcome to GIG - GitIgnore Generator");
 
-      const { template } = await prompt<TemplateResponse>({
-        type: "select",
-        name: "template",
-        message: `${icons.file} Choose a template:`,
-        choices: templates.map((t) => ({
-          name: t.name,
-          value: t.name,
-          description: t.description,
+      // Load templates with spinner
+      const s = spinner();
+      s.start("Loading templates");
+      const templates = listTemplates();
+      s.stop("Templates loaded");
+
+      // Template selection
+      const template = await select({
+        message: "Choose a template",
+        options: templates.map((t) => ({
+          value: t.key,
+          label: t.name,
+          hint: t.description,
         })),
       });
 
-      const selectedTemplate = templates.find(
-        (t) => t.name.trim() === template,
-      );
-
-      if (!selectedTemplate) {
-        alert({
-          type: "error",
-          message: `${icons.error} Template not found`,
-          description: "ERROR",
-        });
-        return 1;
+      if (!template) {
+        outro("No template selected. Goodbye!");
+        return 0;
       }
 
+      // Generate file
+      note(`Generating .gitignore for ${String(template)}`);
       const result = await generateGitIgnore(template as TemplateKey);
-      if (!result.success) return 1;
 
-      return 0;
+      // Outro
+      outro(
+        result.success ? "✨ All done!" : "❌ Failed to generate gitignore",
+      );
+
+      return result.success ? 0 : 1;
     } catch (err: unknown) {
       const error = err instanceof Error ? err.message : "unknown error";
-      alert({
-        type: "error",
-        message: error,
-        description: "ERROR",
-      });
+      outro(`❌ ${error}`);
       return 1;
     }
   }

@@ -6,7 +6,8 @@ import { GitIgnoreTemplate } from "../../types/types";
 export const ruby: GitIgnoreTemplate = {
   id: Date.now(),
   name: "Ruby",
-  description: "Node.js projects with npm/yarn/pnpm",
+  key: "ruby",
+  description: "Ruby projects with Rails",
   content: `
 # Ruby/Rails specific
 *.gem
