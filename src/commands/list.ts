@@ -33,7 +33,6 @@ export class ListCommand extends Command {
   async execute() {
     try {
       const templates = listTemplates();
-      console.log("Available templates:", templates);
 
       const { template } = await prompt<TemplateResponse>({
         type: "select",
@@ -45,7 +44,6 @@ export class ListCommand extends Command {
           description: t.description,
         })),
       });
-      console.log("Selected template key:", template); // Debug
 
       const selectedTemplate = templates.find(
         (t) => t.name.trim() === template,
@@ -61,7 +59,6 @@ export class ListCommand extends Command {
       }
 
       const result = await generateGitIgnore(template as TemplateKey);
-      console.log("Generate result:", result); // Debug
       if (!result.success) return 1;
 
       alert({

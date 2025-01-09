@@ -7,7 +7,6 @@ import { GenerateResult, TemplateKey } from "../types/types";
 export async function generateGitIgnore(
   templateKey: TemplateKey,
 ): Promise<GenerateResult> {
-  console.log("Trying to get template for key:", templateKey); // Debug
   try {
     const exists = await fs
       .access(".gitignore")
@@ -24,7 +23,6 @@ export async function generateGitIgnore(
     }
 
     const template = getTemplate(templateKey);
-    console.log("Found template:", template); // Debug
     if (!template) {
       alert({
         type: "error",
