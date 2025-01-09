@@ -30,6 +30,15 @@ const icons = {
  * */
 export class ListCommand extends Command {
   static paths = [["list"], ["l"]];
+
+  static usage = Command.Usage({
+    description: "List available gitignore templates",
+    examples: [
+      ["List all templates", "gig list"],
+      ["Short form", "gig l"],
+    ],
+  });
+
   async execute() {
     try {
       const templates = listTemplates();
@@ -60,11 +69,6 @@ export class ListCommand extends Command {
 
       const result = await generateGitIgnore(template as TemplateKey);
       if (!result.success) return 1;
-
-      alert({
-        type: "success",
-        message: `${icons.success} Selected: ${selectedTemplate.name}`,
-      });
 
       return 0;
     } catch (err: unknown) {
