@@ -4,7 +4,21 @@
 [![npm](https://img.shields.io/npm/v/gig-ignite)](https://www.npmjs.com/package/gig-ignite)
 [![npm](https://img.shields.io/npm/dt/gig-ignite)](https://www.npmjs.com/package/gig-ignite)
 [![GitHub issues](https://img.shields.io/github/issues/memnoc/gig-ignite)](https://github.com/memnoc/gig-ignite/issues)
-A beautiful, interactive CLI tool to generate .gitignore files for your projects.
+
+## 🤔 Why GIG?
+
+Ever found yourself copy-pasting `.gitignore` files from random places on the internet? Or, when you work with build tools, there is always that one thing you wanted to add? 💀
+
+Well, I did, so I have built GIG:
+
+- 🚫 **No More Copy-Pasting**: Stop searching and copying from multiple sources
+- 🎯 **Language-Specific**: Pre-configured templates for major programming languages and frameworks
+- ⚡ **Instant Setup**: Set up proper Git ignores in seconds, not minutes
+- 🔍 **Interactive Selection**: Beautiful CLI interface to choose the right template
+- 🛠️ **Best Practices**: Templates curated following community standards and best practices
+- 💻 **IDE Agnostic**: Works with any development environment or Git workflow
+
+Whether you're starting your next big project or just need a quick .gitignore fix, GIG's got your back! No more headaches, just clean Git histories. 🥲
 
 ## 👀 Features
 
@@ -64,11 +78,13 @@ npm test
 
 ## 🎯 Supported Templates
 
-Node.js
-Python
-TypeScript
-Go
-Ruby
+- Node.js
+- Python
+- TypeScript
+- Go
+- Ruby
+- Rust
+
 More coming soon!
 
 ## 🛠️ Tech Stack
