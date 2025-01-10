@@ -8,8 +8,8 @@ A beautiful, interactive CLI tool to generate .gitignore files for your projects
 
 ## 👀 Features
 
-[Selection](https://i.imgur.com/oaoLj3D.png)
-[Execution](https://i.imgur.com/fsBx1c9.png)
+![Selection](https://i.imgur.com/oaoLj3D.png)
+![Execution](https://i.imgur.com/fsBx1c9.png)
 
 ## ✨ Features
 
