@@ -21,7 +21,7 @@ A beautiful, interactive CLI tool to generate .gitignore files for your projects
 
 ```bash
 # with Node
-npm install -g gig-ignite`
+npm install -g gig-ignite
 # run without installing
 npx gig-ignite
 ```
@@ -38,6 +38,25 @@ gig l
 gig generate --template node
 # or shorter
 gig g --template node
+```
+
+## 📦 Development
+
+```bash
+Clone repository
+git clone https://github.com/memnoc/gig-ignite.git
+
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Link locally
+npm link
+
+# Run tests
+npm test
 ```
 
 ## 🎯 Supported Templates
@@ -75,30 +94,11 @@ This project is licensed under the Apache 2.0 License - see the LICENSE file for
 [![Clack](https://img.shields.io/badge/Clack-Beautiful%20Prompts-orange)](https://github.com/natemoo-re/clack)
 [![Better CLI Alerts](https://img.shields.io/badge/Better%20CLI%20Alerts-Terminal%20Styling-green)](https://github.com/ahmadawais/cli-alerts)
 
-Special thanks to:
+**Special thanks to**:
 
 - [arcanis](https://github.com/arcanis) for creating Clipanion
 - [natemoo-re](https://github.com/natemoo-re) for creating Clack
 - [ahmadawais](https://github.com/ahmadawais) for creating better-cli-alerts
-
-## 📦 Development
-
-```bash
-Clone repository
-git clone https://github.com/memnoc/gig-ignite.git
-
-# Install dependencies
-npm install
-
-# Build
-npm run build
-
-# Link locally
-npm link
-
-# Run tests
-npm test
-```
 
 ## 🎈 Upcoming Features
 
