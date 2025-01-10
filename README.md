@@ -1,11 +1,12 @@
 # GIG - GitIgnore Generator 🚀
 
-Show Image
-Show Image
-
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/gig-ignite)](https://www.npmjs.com/package/gig-ignite)
+[![npm](https://img.shields.io/npm/dt/gig-ignite)](https://www.npmjs.com/package/gig-ignite)
+[![GitHub issues](https://img.shields.io/github/issues/memnoc/gig-ignite)](https://github.com/memnoc/gig-ignite/issues)
 A beautiful, interactive CLI tool to generate .gitignore files for your projects.
 
-Show Image
+![GIG Demo](./demo.gif)
 
 ## ✨ Features
 
@@ -50,10 +51,9 @@ More coming soon!
 
 ## 🛠️ Tech Stack
 
-TypeScript - For type safety and modern JavaScript features
-Clipanion - CLI framework
-@clack/prompts - Beautiful interactive prompts
-better-cli-alerts - Pretty command line alerts
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/)
 
 ## 🤝 Contributing
 
@@ -71,11 +71,15 @@ This project is licensed under the Apache 2.0 License - see the LICENSE file for
 
 ## 🙏 Acknowledgments
 
-Special thanks to the creators of the libraries used in this project:
+[![Clipanion](https://img.shields.io/badge/Clipanion-CLI%20Framework-blue)](https://github.com/arcanis/clipanion)
+[![Clack](https://img.shields.io/badge/Clack-Beautiful%20Prompts-orange)](https://github.com/natemoo-re/clack)
+[![Better CLI Alerts](https://img.shields.io/badge/Better%20CLI%20Alerts-Terminal%20Styling-green)](https://github.com/ahmadawais/cli-alerts)
 
-arcanis for Clipanion
-natemoo-re for Clack
-ahmadawais for better-cli-alerts
+Special thanks to:
+
+- [arcanis](https://github.com/arcanis) for creating Clipanion
+- [natemoo-re](https://github.com/natemoo-re) for creating Clack
+- [ahmadawais](https://github.com/ahmadawais) for creating better-cli-alerts
 
 ## 📦 Development
 
