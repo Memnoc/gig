@@ -6,7 +6,10 @@
 [![GitHub issues](https://img.shields.io/github/issues/memnoc/gig-ignite)](https://github.com/memnoc/gig-ignite/issues)
 A beautiful, interactive CLI tool to generate .gitignore files for your projects.
 
-![GIG Demo](./demo.gif)
+## 👀 Features
+
+[Selection](https://i.imgur.com/oaoLj3D.png)
+[Execution](https://i.imgur.com/fsBx1c9.png)
 
 ## ✨ Features
 
