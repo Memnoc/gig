@@ -1,6 +1,6 @@
 {
   "name": "gig-ignite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI utility to generate gitignore files for different languages",
   "main": "dist/cli.js",
   "type": "module",
